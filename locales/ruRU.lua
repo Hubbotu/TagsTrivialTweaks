@@ -72,10 +72,10 @@ L.PLAY_COUNTDOWN_SOUND_DESC =            "Воспроизводить звук 
 L.ADDONS =                               "Аддоны"
 L.DISABLE_HANDYNOTES_ALTRMB =            "Отключить HandyNotes Alt " .. app.IconRMB
 L.DISABLE_HANDYNOTES_ALTRMB_DESC =       "Отключить привязку клавиш HandyNotes на карте, вместо этого включив ее для точек маршрута TomTom."
+L.REQUIRES_RELOAD =                      REQUIRES_RELOAD -- "Requires Reload"
 L.AH_PRICE_TOOLTIP =                     "Подсказка с ценой аукциона"
 L.AH_PRICE_TOOLTIP_DESC1 =               "Показывать самую свежую информацию о ценах из Auctionator, Oribos Exchange или TradeSkillMaster."
 L.AH_PRICE_TOOLTIP_DESC2 =               "Также округляет значения и исправляет отображение цен в окне профессий, рецептах и ценах на питомцев."
-L.REQUIRES_RELOAD =                      REQUIRES_RELOAD -- "Requires Reload"
 
 L.HOLIDAYS =                             CALENDAR_FILTER_HOLIDAYS -- "Holidays"
 L.HALLOWSEND_NOTRICK =                   "[Тыквовин] Без уловок"

@@ -72,10 +72,10 @@ L.GENERAL =                              GENERAL -- "General"
 -- L.ADDONS =                               "Addons"
 -- L.DISABLE_HANDYNOTES_ALTRMB =            "Disable HandyNotes Alt " .. app.IconRMB
 -- L.DISABLE_HANDYNOTES_ALTRMB_DESC =       "Disable HandyNotes' keybind on the map, re-enabling it for TomTom waypoints instead."
+-- L.REQUIRES_RELOAD =                      REQUIRES_RELOAD -- "Requires Reload"
 -- L.AH_PRICE_TOOLTIP =                     "AH Price Tooltip"
 -- L.AH_PRICE_TOOLTIP_DESC1 =               "Show the most recent pricing information from either Auctionator, Oribos Exchange, or TradeSkillMaster."
 -- L.AH_PRICE_TOOLTIP_DESC2 =               "Also rounds the value and fixes profession window, recipe, and pet prices."
--- L.REQUIRES_RELOAD =                      REQUIRES_RELOAD -- "Requires Reload"
 
 -- L.HOLIDAYS =                             CALENDAR_FILTER_HOLIDAYS -- "Holidays"
 -- L.HALLOWSEND_NOTRICK =                   "[Hallow's End] No Trick"
