@@ -16,25 +16,25 @@ local L = app.locales
 -- L.INVALID_COMMAND =                      "Invalid command"
 
 -- Settings
--- L.SETTINGS_VERSION =                     GAME_VERSION_LABEL .. ":" -- "Version"
--- L.SETTINGS_SUPPORT_TEXTLONG1 =           "Developing this addon takes a significant amount of time and effort."
--- L.SETTINGS_SUPPORT_TEXTLONG2 =           "Please consider financially supporting the developer."
--- L.SETTINGS_SUPPORT_TEXT =                "Support"
--- L.SETTINGS_SUPPORT_BUTTON =              "Buy Me a Coffee" -- Brand name, if there isn't a localised version, keep it the way it is
--- L.SETTINGS_SUPPORT_DESC =                "Thank you!"
--- L.SETTINGS_HELP_TEXT =                   "Feedback & Help"
--- L.SETTINGS_HELP_BUTTON =                 "Discord" -- Brand name, if there isn't a localised version, keep it the way it is
--- L.SETTINGS_HELP_DESC =                   "Join the Discord server."
--- L.SETTINGS_URL_COPY =                    "Ctrl+C to copy:"
--- L.SETTINGS_URL_COPIED =                  "Link copied to clipboard"
+-- L.VERSION =                              GAME_VERSION_LABEL .. ":" -- "Version"
+-- L.SUPPORT_TEXTLONG1 =                    "Developing this addon takes a significant amount of time and effort."
+-- L.SUPPORT_TEXTLONG2 =                    "Please consider financially supporting the developer."
+-- L.SUPPORT =                              "Support"
+-- L.BUY_ME_A_COFFEE =                      "Buy Me a Coffee" -- Brand name, if there isn't a localised version, keep it the way it is
+-- L.THANK_YOU =                            "Thank you!"
+-- L.FEEDBACK_AND_HELP =                    "Feedback & Help"
+-- L.DISCORD =                              "Discord" -- Brand name, if there isn't a localised version, keep it the way it is
+-- L.JOIN_DISCORD_SERVER =                  "Join the Discord server."
+-- L.CTRL_C_COPY =                          "Ctrl+C to copy:"
+-- L.LINK_COPIED =                          "Link copied to clipboard"
 
--- L.SETTINGS_KEYSLASH_TITLE =              SETTINGS_KEYBINDINGS_LABEL .. " & Slash Commands" -- "Keybindings"
--- L.SLASH_OPEN_SETTINGS =                  "Open the settings"
+-- L.KEYBINDINGS_AND_SLASH_COMMANDS =       SETTINGS_KEYBINDINGS_LABEL .. " & Slash Commands" -- "Keybindings"
+-- L.OPEN_SETTINGS =                        "Open the settings"
 
 -- L.GENERAL =                              GENERAL -- "General"
 -- L.CURSOR_GUIDE =                         "Cursor Guide"
 -- L.CURSOR_GUIDE_DESC =                    "Show a guide around the cursor to help you keep track of it."
--- L.CURSOR_GUIDE_COMBAT=                   "Only In Combat"
+-- L.CURSOR_GUIDE_COMBAT =                  "Only In Combat"
 -- L.CURSOR_GUIDE_COMBAT_DESC =             "Only show the cursor guide in combat."
 -- L.SKIP_SEEN_CINEMATICS =                 "Skip Seen Cinematics"
 -- L.SKIP_SEEN_CINEMATICS_DESC =            "Automatically skip before-seen cinematics."
@@ -52,8 +52,8 @@ local L = app.locales
 -- L.INSTANT_CATALYST_DESC =                "Hold Shift to instantly catalyze an item, skipping the 5 second timer."
 -- L.INSTANT_VAULT =                        "Instant Great Vault"
 -- L.INSTANT_VAULT_DESC =                   "Hold Shift to instantly receive your reward from the Great Vault and skip the 5 second timer."
--- L.INSTANT_TOOLTIP =                      "Show Tooltip"
--- L.INSTANT_TOOLTIP_DESC =                 "Show the tooltip explaining how this feature works. The button text still changes when this is disabled."
+-- L.SHOW_TOOLTIP =                         "Show Tooltip"
+-- L.SHOW_TOOLTIP_SETTING_DESC =            "Show the tooltip explaining how this feature works. The button text still changes when this is disabled."
 -- L.HIDE_LOOT_ROLL_WINDOW =                "Hide Loot Roll Window"
 -- L.HIDE_LOOT_ROLL_WINDOW_DESC =           "Hide the window that shows loot rolls and their results. You can show the window again with %s." -- %s becomes "/loot"
 -- L.DISABLE_VENDOR_FILTER =                "Disable Vendor Filter"
@@ -62,7 +62,7 @@ local L = app.locales
 -- L.DISABLE_VENDOR_COMPARE_DESC =          "Disable the automatic gear comparison on vendor items."
 
 -- L.SOUND =                                SOUND -- "Sound"
--- L.PLAY_QUEUE_SOUND=                      "Play Queue Sound"
+-- L.PLAY_QUEUE_SOUND =                     "Play Queue Sound"
 -- L.PLAY_QUEUE_SOUND_DESC =                "Play the queue sound on the Master channel when any queue pops, including battlegrounds and pet battles."
 -- L.PLAY_READYCHECK_SOUND =                "Play Ready Check Sound"
 -- L.PLAY_READYCHECK_SOUND_DESC =           "Play the ready check sound on the Master channel when a ready check is initiated."
@@ -82,6 +82,6 @@ local L = app.locales
 -- L.HALLOWSEND_NOTRICK_DESC =              "Sit down before completing a Candy Bucket quest, preventing getting tricked and pacified."
 
 -- UI
--- L.INSTANT_BUTTON =                       "Get it now!"
--- L.INSTANT_TOOLTIP =                      "Hold Shift to instantly receive your item and skip the 5 second timer."
+-- L.GET_IT_NOW =                           "Get it now!"
+-- L.HOLD_SHIFT_TOOLTIP =                   "Hold Shift to instantly receive your item and skip the 5 second timer."
 -- L.REGION =                               "%s Region" -- %s becomes an abbreviated region name such as "EU" or "US"

@@ -77,7 +77,7 @@ local LibBattlePetTooltipLine = LibStub("LibBattlePetTooltipLine-1-0")
 hooksecurefunc("BattlePetToolTip_Show", function(...)
 	if app.Settings.ahPriceTooltip and app.Flag.IsAuctionAddonLoaded then
 		local speciesID, level, breedQuality, maxHealth, power, speed, bracketName = ...
-		local itemLink = "|cff0070dd|Hbattlepet:" .. speciesID .. ":" .. level .. ":" .. breedQuality .. ":" .. maxHealth .. ":" .. power .. ":" .. speed .. "|h" .. bracketName .. "|h|r"
+		local itemLink = "|cff0070DD|Hbattlepet:" .. speciesID .. ":" .. level .. ":" .. breedQuality .. ":" .. maxHealth .. ":" .. power .. ":" .. speed .. "|h" .. bracketName .. "|h|r"
 
 		local realmPrice, regionPrice = app:RoundedItemValue(nil, itemLink, speciesID)
 		if realmPrice + regionPrice > 0 then
@@ -102,7 +102,7 @@ function app:HideOribosMessage()
 			end, 1, 1)
 		else
 			local function removeMessage()
-				local message = "Tooltip prices disabled. Run |cFFFFFF78/oetooltip on|r to enable."
+				local message = "Tooltip prices disabled. Run |cffFFFF78/oetooltip on|r to enable."
 				local removed = 0
 
 				ChatFrame1:RemoveMessagesByPredicate(function(m)

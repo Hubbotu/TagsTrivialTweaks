@@ -16,25 +16,25 @@ L.DEBUG_DISABLED =                       "Режим отладки выключ
 L.INVALID_COMMAND =                      "Неверная команда"
 
 -- Settings
-L.SETTINGS_VERSION =                     GAME_VERSION_LABEL .. ":" -- "Version"
-L.SETTINGS_SUPPORT_TEXTLONG1 =           "Разработка этого аддона требует значительного времени и усилий."
-L.SETTINGS_SUPPORT_TEXTLONG2 =           "Пожалуйста, рассмотрите возможность финансовой поддержки разработчика."
-L.SETTINGS_SUPPORT_TEXT =                "Поддержать"
-L.SETTINGS_SUPPORT_BUTTON =              "Buy Me a Coffee" -- Brand name, if there isn't a localised version, keep it the way it is
-L.SETTINGS_SUPPORT_DESC =                "Спасибо!"
-L.SETTINGS_HELP_TEXT =                   "Обратная связь и помощь"
-L.SETTINGS_HELP_BUTTON =                 "Discord" -- Brand name, if there isn't a localised version, keep it the way it is
-L.SETTINGS_HELP_DESC =                   "Присоединиться к серверу Discord."
-L.SETTINGS_URL_COPY =                    "Ctrl+C — скопировать:"
-L.SETTINGS_URL_COPIED =                  "Ссылка скопирована в буфер обмена"
+L.VERSION =                              GAME_VERSION_LABEL .. ":" -- "Version"
+L.SUPPORT_TEXTLONG1 =                    "Разработка этого аддона требует значительного времени и усилий."
+L.SUPPORT_TEXTLONG2 =                    "Пожалуйста, рассмотрите возможность финансовой поддержки разработчика."
+L.SUPPORT =                              "Поддержать"
+L.BUY_ME_A_COFFEE =                      "Buy Me a Coffee" -- Brand name, if there isn't a localised version, keep it the way it is
+L.THANK_YOU =                            "Спасибо!"
+L.FEEDBACK_AND_HELP =                    "Обратная связь и помощь"
+L.DISCORD =                              "Discord" -- Brand name, if there isn't a localised version, keep it the way it is
+L.JOIN_DISCORD_SERVER =                  "Присоединиться к серверу Discord."
+L.CTRL_C_COPY =                          "Ctrl+C — скопировать:"
+L.LINK_COPIED =                          "Ссылка скопирована в буфер обмена"
 
-L.SETTINGS_KEYSLASH_TITLE =              SETTINGS_KEYBINDINGS_LABEL .. " & Слэш-команды" -- "Keybindings"
-L.SLASH_OPEN_SETTINGS =                  "Откройте настройки"
+L.KEYBINDINGS_AND_SLASH_COMMANDS =       SETTINGS_KEYBINDINGS_LABEL .. " & Слэш-команды" -- "Keybindings"
+L.OPEN_SETTINGS =                        "Откройте настройки"
 
 L.GENERAL =                              GENERAL -- "General"
 L.CURSOR_GUIDE =                         "Направляющая курсора"
 L.CURSOR_GUIDE_DESC =                    "Чтобы вам было легче следить за курсором, отобразите вокруг него направляющую."
-L.CURSOR_GUIDE_COMBAT=                   "Только в бою"
+L.CURSOR_GUIDE_COMBAT =                  "Только в бою"
 L.CURSOR_GUIDE_COMBAT_DESC =             "Отображайте курсор только в бою."
 L.SKIP_SEEN_CINEMATICS =                 "Пропуск просмотренных роликов"
 L.SKIP_SEEN_CINEMATICS_DESC =            "Автоматически пропускать внутриигровые ролики, которые вы уже видели."
@@ -52,8 +52,8 @@ L.INSTANT_CATALYST =                     "Мгновенная катализа�
 L.INSTANT_CATALYST_DESC =                "Удерживайте Shift, чтобы мгновенно катализировать предмет, пропуская 5-секундный таймер."
 L.INSTANT_VAULT =                        "Мгновенное Великое Хранилище"
 L.INSTANT_VAULT_DESC =                   "Удерживайте Shift, чтобы мгновенно получить награду из Великого Хранилища, пропуская 5-секундный таймер."
-L.INSTANT_TOOLTIP =                      "Показывать подсказку"
-L.INSTANT_TOOLTIP_DESC =                 "Показывать подсказку, объясняющую, как работает эта функция. Текст кнопки все равно меняется, если это отключено."
+L.SHOW_TOOLTIP =                         "Показывать подсказку"
+L.SHOW_TOOLTIP_SETTING_DESC =            "Показывать подсказку, объясняющую, как работает эта функция. Текст кнопки все равно меняется, если это отключено."
 L.HIDE_LOOT_ROLL_WINDOW =                "Скрыть окно бросков лута"
 L.HIDE_LOOT_ROLL_WINDOW_DESC =           "Скрыть окно, показывающее броски лута и их результаты. Вы можете снова показать окно с помощью %s." -- %s becomes "/loot"
 L.DISABLE_VENDOR_FILTER =                "Отключить фильтр торговца"
@@ -62,7 +62,7 @@ L.DISABLE_VENDOR_COMPARE =               "Отключить сравнение 
 L.DISABLE_VENDOR_COMPARE_DESC =          "Отключает автоматическое сравнение экипировки при просмотре товаров у торговцев."
 
 L.SOUND =                                SOUND -- "Sound"
-L.PLAY_QUEUE_SOUND=                      "Воспроизвести звук очереди"
+L.PLAY_QUEUE_SOUND =                     "Воспроизвести звук очереди"
 L.PLAY_QUEUE_SOUND_DESC =                "Воспроизводить звук готовности очереди на главном канале, когда срабатывает любая очередь, включая поля боя и битвы питомцев."
 L.PLAY_READYCHECK_SOUND =                "Звук проверки готовности"
 L.PLAY_READYCHECK_SOUND_DESC =           "Воспроизводить звук проверки готовности на главном звуковом канале, когда она запускается."
@@ -82,6 +82,6 @@ L.HALLOWSEND_NOTRICK =                   "[Тыквовин] Без уловок
 L.HALLOWSEND_NOTRICK_DESC =              "Сядьте, прежде чем выполнять задание «Кулек конфет», чтобы не дать себя обмануть и успокоить."
 
 -- UI
-L.INSTANT_BUTTON =                       "Получить сейчас!"
-L.INSTANT_TOOLTIP =                      "Удерживайте Shift, чтобы мгновенно получить предмет, пропуская 5-секундный таймер."
+L.GET_IT_NOW =                           "Получить сейчас!"
+L.HOLD_SHIFT_TOOLTIP =                   "Удерживайте Shift, чтобы мгновенно получить предмет, пропуская 5-секундный таймер."
 L.REGION =                               "%s Регион" -- %s becomes an abbreviated region name such as "EU" or "US"

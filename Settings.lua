@@ -43,7 +43,7 @@ function app:CreateSettings()
 	text:SetPoint("CENTER", app.LinkCopiedFrame, "CENTER")
 	text:SetPoint("TOP", app.LinkCopiedFrame, "TOP")
 	text:SetJustifyH("CENTER")
-	text:SetText(app.IconReady .. " " .. L.SETTINGS_URL_COPIED)
+	text:SetText(app.IconReady .. " " .. L.LINK_COPIED)
 
 	app.LinkCopiedFrame.animation = app.LinkCopiedFrame:CreateAnimationGroup()
 	local fadeOut = app.LinkCopiedFrame.animation:CreateAnimation("Alpha")
@@ -58,7 +58,7 @@ function app:CreateSettings()
 	end)
 
 	StaticPopupDialogs["SLACKERSTWEAKSUITE_URL"] = {
-		text = L.SETTINGS_URL_COPY,
+		text = L.CTRL_C_COPY,
 		button1 = CLOSE,
 		whileDead = true,
 		hasEditBox = true,
@@ -274,17 +274,17 @@ function app:CreateSettings()
 	Settings.RegisterAddOnCategory(category)
 	app.SettingsCategory = category
 
-	text(L.SETTINGS_VERSION .. " |cffFFFFFF" .. app.Version, nil, nil, 14)
-	text(L.SETTINGS_SUPPORT_TEXTLONG1 .. "\n" .. L.SETTINGS_SUPPORT_TEXTLONG2)
-	button(L.SETTINGS_SUPPORT_TEXT, L.SETTINGS_SUPPORT_BUTTON, L.SETTINGS_SUPPORT_DESC, function() StaticPopup_Show("SLACKERSTWEAKSUITE_URL", nil, nil, "https://buymeacoffee.com/Slackluster") end)
-	button(L.SETTINGS_HELP_TEXT, L.SETTINGS_HELP_BUTTON, L.SETTINGS_HELP_DESC, function() StaticPopup_Show("SLACKERSTWEAKSUITE_URL", nil, nil, "https://discord.gg/hGvF59hstx") end)
+	text(L.VERSION .. " |cffFFFFFF" .. app.Version, nil, nil, 14)
+	text(L.SUPPORT_TEXTLONG1 .. "\n" .. L.SUPPORT_TEXTLONG2)
+	button(L.SUPPORT, L.BUY_ME_A_COFFEE, L.THANK_YOU, function() StaticPopup_Show("SLACKERSTWEAKSUITE_URL", nil, nil, "https://buymeacoffee.com/Slackluster") end)
+	button(L.FEEDBACK_AND_HELP, L.DISCORD, L.JOIN_DISCORD_SERVER, function() StaticPopup_Show("SLACKERSTWEAKSUITE_URL", nil, nil, "https://discord.gg/hGvF59hstx") end)
 
-	local _, isExpanded = expandableHeader(L.SETTINGS_KEYSLASH_TITLE)
+	local _, isExpanded = expandableHeader(L.KEYBINDINGS_AND_SLASH_COMMANDS)
 
 		local leftText = { "|cffFFFFFF" ..
 			"/sts" }
 		local middleText = {
-			L.SLASH_OPEN_SETTINGS }
+			L.OPEN_SETTINGS }
 		leftText = table.concat(leftText, "\n\n")
 		middleText = table.concat(middleText, "\n\n")
 		text(leftText, middleText, nil, nil, isExpanded)
@@ -293,7 +293,7 @@ function app:CreateSettings()
 
 	local parentSetting, parentCheckbox = checkbox("cursorGuide", L.CURSOR_GUIDE, L.CURSOR_GUIDE_DESC, false, function() app:SetCursorGuideVisibility() end)
 
-	checkbox("cursorGuideCombat", L.SETTINGS_CURSORGUIDE_COMBAT_TITLE, L.CURSOR_GUIDE_COMBAT_DESC, true, function() app:SetCursorGuideVisibility() end, parentSetting, parentCheckbox)
+	checkbox("cursorGuideCombat", L.CURSOR_GUIDE_COMBAT, L.CURSOR_GUIDE_COMBAT_DESC, true, function() app:SetCursorGuideVisibility() end, parentSetting, parentCheckbox)
 
 	checkbox("skipSeenCinematics", L.SKIP_SEEN_CINEMATICS, L.SKIP_SEEN_CINEMATICS_DESC, false, nil, nil, nil, true)
 
@@ -315,13 +315,13 @@ function app:CreateSettings()
 
 	local parentSetting, parentCheckbox = checkbox("instantCatalyst", L.INSTANT_CATALYST, L.INSTANT_CATALYST_DESC, true)
 
-	checkbox("instantCatalystTooltip", L.INSTANT_TOOLTIP, L.INSTANT_TOOLTIP_DESC, true, nil, parentSetting, parentCheckbox)
+	checkbox("instantCatalystTooltip", L.SHOW_TOOLTIP, L.SHOW_TOOLTIP_SETTING_DESC, true, nil, parentSetting, parentCheckbox)
 
 	local parentSetting, parentCheckbox = checkbox("instantVault", L.INSTANT_VAULT, L.INSTANT_VAULT_DESC, true)
 
-	checkbox("instantVaultTooltip", L.INSTANT_TOOLTIP,L.INSTANT_TOOLTIP_DESC, true, nil, parentSetting, parentCheckbox)
+	checkbox("instantVaultTooltip", L.SHOW_TOOLTIP, L.SHOW_TOOLTIP_SETTING_DESC, true, nil, parentSetting, parentCheckbox)
 
-	checkbox("hideGroupRolls", L.HIDE_LOOT_ROLL_WINDOW, string.format(L.HIDE_LOOT_ROLL_WINDOW_DESC, "|cff00ccff/loot|r"), false)
+	checkbox("hideGroupRolls", L.HIDE_LOOT_ROLL_WINDOW, string.format(L.HIDE_LOOT_ROLL_WINDOW_DESC, "|cff00CCFF/loot|r"), false)
 
 	checkbox("vendorAll", L.DISABLE_VENDOR_FILTER, L.DISABLE_VENDOR_FILTER_DESC, true)
 
@@ -333,7 +333,7 @@ function app:CreateSettings()
 
 	header(L.SOUND)
 
-	checkbox("queueSound", L.SETTINGS_QUEUESOUND_TITLE, L.PLAY_QUEUE_SOUND_DESC, false)
+	checkbox("queueSound", L.PLAY_QUEUE_SOUND, L.PLAY_QUEUE_SOUND_DESC, false)
 
 	checkbox("readyCheckSound", L.PLAY_READYCHECK_SOUND, L.PLAY_READYCHECK_SOUND_DESC, false, nil, nil, nil, true)
 
