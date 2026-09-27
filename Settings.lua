@@ -327,7 +327,7 @@ function app:CreateSettings()
 
 	end
 
-	checkbox("disableMerchantCompare", L.DISABLE_VENDOR_COMPARE, L.DISABLE_VENDOR_COMPARE_DESC, true, nil, nil, nil, true)
+	checkbox("disableMerchantCompare", L.DISABLE_VENDOR_COMPARE, L.DISABLE_VENDOR_COMPARE_DESC1 .. "\n" .. L.DISABLE_VENDOR_COMPARE_DESC2, true, nil, nil, nil, true)
 
 	if app.Retail then
 

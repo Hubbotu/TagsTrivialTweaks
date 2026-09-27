@@ -59,7 +59,8 @@ L.HIDE_LOOT_ROLL_WINDOW_DESC =           "Скрыть окно, показыв�
 L.DISABLE_VENDOR_FILTER =                "Отключить фильтр торговца"
 L.DISABLE_VENDOR_FILTER_DESC =           "Автоматически устанавливать все фильтры торговца на \"Все\", чтобы отображать предметы, обычно не показываемые для вашего класса."
 L.DISABLE_VENDOR_COMPARE =               "Отключить сравнение у торговцев"
-L.DISABLE_VENDOR_COMPARE_DESC =          "Отключает автоматическое сравнение экипировки при просмотре товаров у торговцев."
+L.DISABLE_VENDOR_COMPARE_DESC1 =         "Отключает автоматическое сравнение экипировки при просмотре товаров у торговцев."
+-- L.DISABLE_VENDOR_COMPARE_DESC2 =         "May be incompatible with addons that filter vendor contents."
 
 L.SOUND =                                SOUND -- "Sound"
 L.PLAY_QUEUE_SOUND =                     "Воспроизвести звук очереди"
