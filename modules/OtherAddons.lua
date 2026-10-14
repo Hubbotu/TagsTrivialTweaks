@@ -50,6 +50,67 @@ end
 -- RECENT AH PRICE --
 ---------------------
 
+function app:RoundedItemValue(itemID, itemLink, speciesID)
+	if (not itemID and not itemLink) or itemID == 0 then return 0, 0 end
+
+	local realmPrice = {}
+	local regionPrice = {}
+	if not itemLink then
+		if C_AddOns.IsAddOnLoaded("TradeSkillMaster") then
+			table.insert(realmPrice, { price = TSM_API.GetCustomPriceValue("DBMinBuyout", "i:" .. itemID) or 0, age = -1 })
+			table.insert(regionPrice, { price = TSM_API.GetCustomPriceValue("DBRegionMarketAvg", "i:" .. itemID) or 0, age = -1 })
+		end
+		if C_AddOns.IsAddOnLoaded("Auctionator") then
+			table.insert(realmPrice, { price = Auctionator.API.v1.GetAuctionPriceByItemID(app.Name, itemID) or 0, age = Auctionator.API.v1.GetAuctionAgeByItemID(app.Name, itemID) or 99 })
+		end
+		if C_AddOns.IsAddOnLoaded("OribosExchange") then
+			local oeData = {}
+			OEMarketInfo(itemID, oeData)
+			table.insert(realmPrice, { price = oeData.market or 0, age = (oeData.age and oeData.age / 60 / 60 / 24) or 99 })
+			table.insert(regionPrice, { price = oeData.region or 0, age = (oeData.age and oeData.age / 60 / 60 / 24) or 99 })
+		end
+	else
+		if C_AddOns.IsAddOnLoaded("TradeSkillMaster") then
+			table.insert(realmPrice, { price = TSM_API.GetCustomPriceValue("DBMinBuyout", "p:" .. speciesID) or 0, age = -1 })
+			table.insert(regionPrice, { price = TSM_API.GetCustomPriceValue("DBRegionMarketAvg", "p:" .. speciesID) or 0, age = -1 })
+		end
+		if C_AddOns.IsAddOnLoaded("Auctionator") then
+			table.insert(realmPrice, { price = Auctionator.API.v1.GetAuctionPriceByItemLink(app.Name, itemLink) or 0, age = Auctionator.API.v1.GetAuctionAgeByItemLink(app.Name, itemLink) or 99 })
+		end
+		if C_AddOns.IsAddOnLoaded("OribosExchange") then
+			local oeData = {}
+			OEMarketInfo(itemLink, oeData)
+			table.insert(realmPrice, { price = oeData.market or 0, age = (oeData.age and oeData.age / 60 / 60 / 24) or 99 })
+			table.insert(regionPrice, { price = oeData.region or 0, age = (oeData.age and oeData.age / 60 / 60 / 24) or 99 })
+		end
+	end
+
+	if app.Cache.Commodities and app.Cache.Commodities[itemID] then
+		for _, value in ipairs(realmPrice) do
+			table.insert(regionPrice, value)
+		end
+		realmPrice = {}
+	end
+
+	table.sort(realmPrice, function(a, b) return a.age < b.age end)
+	table.sort(regionPrice, function(a, b) return a.age < b.age end)
+	local function getPrice(table)
+		for _, value in ipairs(table) do
+			if value.price > 0 then
+				if value.price >= 10000 then
+					value.price = math.floor(value.price / 10000) * 10000
+				elseif value.price >= 100 then
+					value.price = math.floor(value.price / 100) * 100
+				end
+				return value.price
+			end
+		end
+		return 0
+	end
+
+	return getPrice(realmPrice), getPrice(regionPrice)
+end
+
 function app:ShowRecentAHPrice()
 	local function OnTooltipSetItem(tooltip, itemData)
 		if app.Settings.ahPriceTooltip and app.Flag.IsAuctionAddonLoaded then
