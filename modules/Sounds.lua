@@ -51,8 +51,13 @@ end)
 ---------------
 
 function app:PlayCountdownSound(seconds)
+	app.Flag.CountdownNo = (app.Flag.CountdownNo or 0) + 1
+	local no = app.Flag.CountdownNo
+
 	local function countdown(time)
+		if no ~= app.Flag.CountdownNo then return end
 		if not app.Flag.Countdown then return end
+
 		if time ~= 0 then
 			PlaySoundFile(567474, "Master")
 			time = time - 1
@@ -64,6 +69,7 @@ function app:PlayCountdownSound(seconds)
 			app.Flag.Countdown = false
 		end
 	end
+
 	if app.Settings.countdownSound then
 		countdown(seconds)
 	end
