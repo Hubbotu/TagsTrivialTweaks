@@ -1,5 +1,5 @@
 -------------------------------------
--- Slacker's Tweak Suite： zhCN.lua --
+-- Slacker's Tweak Suite: zhCN.lua --
 -------------------------------------
 -- Chinese (Simplified, PRC) localisation
 -- Translator(s):

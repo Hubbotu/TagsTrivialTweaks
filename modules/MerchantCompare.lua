@@ -1,6 +1,6 @@
------------------------------------------
--- Slacker's Tweak Suite: Merchant.lua --
------------------------------------------
+------------------------------------------------
+-- Slacker's Tweak Suite: MerchantCompare.lua --
+------------------------------------------------
 
 local appName, app = ...
 local api = app.api
