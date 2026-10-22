@@ -13,7 +13,7 @@ TransmogLootHelper_Settings = TransmogLootHelper_Settings or {}
 ----------------------
 
 app.Event:Register("PLAYER_INTERACTION_MANAGER_FRAME_SHOW", function(type)
-	if not TransmogLootHelper_Settings.instantCatalyst and app.Settings.instantCatalyst and type == 44 then
+	if not TransmogLootHelper_Settings.instantCatalyst and app.Settings.instantCatalyst and type == 44 and not app.Flag.CatalystHook then
 		ItemInteractionFrame.ButtonFrame.ActionButton:HookScript("OnClick", function()
 			if IsShiftKeyDown() then
 				ItemInteractionFrame:CompleteItemInteraction()
@@ -47,6 +47,8 @@ app.Event:Register("PLAYER_INTERACTION_MANAGER_FRAME_SHOW", function(type)
 			ItemInteractionFrame.ButtonFrame.ActionButton:SetText(buttonText)
 			self:UnregisterEvent("MODIFIER_STATE_CHANGED")
 		end)
+
+		app.Flag.CatalystHook = true
 	end
 end)
 
@@ -55,7 +57,7 @@ end)
 -------------------------
 
 app.Event:Register("WEEKLY_REWARDS_UPDATE", function()
-	if not TransmogLootHelper_Settings.instantVault and app.Settings.instantVault and WeeklyRewardsFrame and WeeklyRewardsFrame:IsVisible() then
+	if not TransmogLootHelper_Settings.instantVault and app.Settings.instantVault and WeeklyRewardsFrame and WeeklyRewardsFrame:IsVisible() and not app.Flag.VaultHook then
 		WeeklyRewardsFrame.SelectRewardButton:HookScript("OnClick", function()
 			if IsShiftKeyDown() then
 				StaticPopupDialogs["CONFIRM_SELECT_WEEKLY_REWARD"].OnAccept(StaticPopup1, StaticPopup1.data)
@@ -88,6 +90,8 @@ app.Event:Register("WEEKLY_REWARDS_UPDATE", function()
 			WeeklyRewardsFrame.SelectRewardButton:SetText(WEEKLY_REWARDS_SELECT_REWARD)
 			self:UnregisterEvent("MODIFIER_STATE_CHANGED")
 		end)
+
+		app.Flag.VaultHook = true
 	end
 end)
 
@@ -96,7 +100,7 @@ end)
 ---------------------------
 
 app.Event:Register("START_LOOT_ROLL", function(rollID, rollTime, lootHandle)
-	if not TransmogLootHelper_Settings.hideGroupRolls and app.Settings.hideGroupRolls and GroupLootHistoryFrame then
+	if not TransmogLootHelper_Settings.hideGroupRolls and app.Settings.hideGroupRolls and GroupLootHistoryFrame and not app.Flag.GroupLootHook then
 		local hidden = false
 		GroupLootHistoryFrame:HookScript("OnShow", function()
 			if hidden == false then
@@ -104,5 +108,7 @@ app.Event:Register("START_LOOT_ROLL", function(rollID, rollTime, lootHandle)
 				hidden = true
 			end
 		end)
+
+		app.Flag.GroupLootHook = true
 	end
 end)
