@@ -100,8 +100,8 @@ end)
 ---------------------------
 
 app.Event:Register("START_LOOT_ROLL", function(rollID, rollTime, lootHandle)
+	local hidden = false
 	if not TransmogLootHelper_Settings.hideGroupRolls and app.Settings.hideGroupRolls and GroupLootHistoryFrame and not app.Flag.GroupLootHook then
-		local hidden = false
 		GroupLootHistoryFrame:HookScript("OnShow", function()
 			if hidden == false then
 				GroupLootHistoryFrame:Hide()
