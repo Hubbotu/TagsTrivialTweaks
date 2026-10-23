@@ -34,6 +34,8 @@ Features marked with [F] are available on Forever; features marked with [R] are 
 - Holidays
   - [R] [Hallow's End] No Trick: Sit down before completing a Candy Bucket quest, preventing getting tricked and pacified.
 
+![](https://media.forgecdn.net/attachments/2094/411/sts-01-png.png)
+
 ## If you are experiencing issues
 - Check if the issue occurs with only this addon enabled, or if the issue is a feature you can disable from the addon's settings menu.
 - If you run into any issues or if you have other feedback, feel free to join the [Discord](https://discord.gg/FwWZZ39kPX) and ask in the `#slackers-tweak-suite` channel, or create a [ticket on GitHub](https://github.com/Slackluster/SlackersTweakSuite/issues). :)
