@@ -245,6 +245,9 @@ function app:ResizeMerchantFrame(merchantTab)
 		width = width + (app.Settings.merchantColumns - DEFAULT_COLUMNS) * (app.MerchantFrame.itemWidth + SPACING_X)
 		height = height + (app.Settings.merchantRows - DEFAULT_ROWS) * (app.MerchantFrame.itemHeight + SPACING_Y)
 	end
+	if C_AddOns.IsAddOnLoaded("GW2_UI") then
+		width = width + 24
+	end
 	if MerchantFrame:GetWidth() ~= width or MerchantFrame:GetHeight() ~= height then
 		MerchantFrame:SetSize(width, height)
 	end
