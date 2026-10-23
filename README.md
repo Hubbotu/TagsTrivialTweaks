@@ -22,7 +22,7 @@ Features marked with [F] are available on Forever; features marked with [R] are 
   - [R] Instant Great Vault: Hold Shift to instantly receive your reward from the Great Vault and skip the 5 second timer.
   - [R] Hide Loot Roll Window: Hide the window that shows loot rolls and their results. You can show the window again with /loot.
   - [R&F] Extended Merchant Frame: Allows configuring how many rows and columns of items are displayed on merchants, and adds a search filter.
-  - [R&F] Disable Merchant Filter: Automatically set all merchant filters to All to display items normally not shown to your class.
+  - [R] Disable Merchant Filter: Automatically set all merchant filters to All to display items normally not shown to your class.
   - [R&F] Disable Merchant Compare: Disable the automatic gear comparison on merchant items.
 - Sound
   - [R] Play Queue Sound: Play the queue sound on the Master channel when any queue pops, including battlegrounds and pet battles.
