@@ -247,7 +247,6 @@ function app:ResizeMerchantFrame(merchantTab)
 		width = width + (app.Settings.merchantColumns - DEFAULT_COLUMNS) * (app.MerchantFrame.itemWidth + SPACING_X)
 		height = height + (app.Settings.merchantRows - DEFAULT_ROWS) * (app.MerchantFrame.itemHeight + SPACING_Y)
 	end
-
 	if MerchantFrame:GetWidth() ~= width or MerchantFrame:GetHeight() ~= height then
 		MerchantFrame:SetSize(width, height)
 	end
@@ -257,22 +256,28 @@ function app:ResizeMerchantFrame(merchantTab)
 	MerchantSellAllJunkButton:ClearAllPoints()
 	MerchantSellAllJunkButton:SetPoint("RIGHT", MerchantBuyBackItem, "LEFT", -18, 0)
 
-	MerchantMoneyInset:ClearAllPoints()
-	MerchantMoneyInset:SetPoint("BOTTOMLEFT", MerchantExtraCurrencyInset, "BOTTOMRIGHT", -4, 0)
-	MerchantMoneyInset:SetPoint("TOP", MerchantExtraCurrencyInset)
-	MerchantMoneyInset:SetPoint("RIGHT", MerchantFrameBottomLeftBorder)
-	MerchantMoneyBg:ClearAllPoints()
-	MerchantMoneyBg:SetPoint("TOPLEFT", MerchantMoneyInset, 2, -2)
-	MerchantMoneyBg:SetPoint("BOTTOMRIGHT", MerchantMoneyInset, -4, 2)
-	if MerchantToken1 then
-		MerchantToken1:SetPoint("RIGHT", MerchantMoneyBg, -10, 0)
+	local function setAnchor(region, left, bottom, right, top)
+		region:ClearAllPoints()
+		region:SetPoint("BOTTOMLEFT", MerchantFrame, "BOTTOMLEFT", left, bottom)
+		region:SetPoint("TOPRIGHT", MerchantFrame, "BOTTOMLEFT", right, top)
 	end
 
-	MerchantMoneyFrame:ClearAllPoints()
-	if MerchantExtraCurrencyInset:IsVisible() then
-		MerchantMoneyFrame:SetPoint("RIGHT", MerchantExtraCurrencyInset)
+	if #C_MerchantFrame.GetMerchantCurrencies() > 0 then
+		setAnchor(MerchantMoneyInset, 4, 4, 169, 27)
+		setAnchor(MerchantMoneyBg, 7, 6, 166, 25)
+		setAnchor(MerchantExtraCurrencyInset, app.MerchantFrame.frameWidth - 171, 4, app.MerchantFrame.frameWidth - 5, 27)
+		setAnchor(MerchantExtraCurrencyBg, app.MerchantFrame.frameWidth - 166, 6, app.MerchantFrame.frameWidth - 7, 25)
 	else
-		MerchantMoneyFrame:SetPoint("RIGHT", MerchantMoneyInset)
+		setAnchor(MerchantMoneyInset, app.MerchantFrame.frameWidth - 171, 4, app.MerchantFrame.frameWidth - 5, 27)
+		setAnchor(MerchantMoneyBg, app.MerchantFrame.frameWidth - 166, 6, app.MerchantFrame.frameWidth - 7, 25)
+		setAnchor(MerchantExtraCurrencyInset, 4, 4, 169, 27)
+		setAnchor(MerchantExtraCurrencyBg, 7, 6, 166, 25)
+	end
+	MerchantMoneyFrame:ClearAllPoints()
+	MerchantMoneyFrame:SetPoint("BOTTOMRIGHT", MerchantFrame, "BOTTOMLEFT", app.MerchantFrame.frameWidth - ((#C_MerchantFrame.GetMerchantCurrencies() > 0) and 169 or 4), 8)
+	if MerchantToken1 then
+		MerchantToken1:ClearAllPoints()
+		MerchantToken1:SetPoint("BOTTOMRIGHT", MerchantFrame, "BOTTOMLEFT", app.MerchantFrame.frameWidth - 16, 8)
 	end
 
 	EventRegistry:TriggerEvent("SlackersTweakSuite.ExtendedMerchantFrameResized")
