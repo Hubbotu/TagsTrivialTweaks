@@ -12,7 +12,7 @@ local L = app.locales
 
 app.Event:Register("ADDON_LOADED", function(addOnName, containsBindings)
 	if addOnName == appName then
-		app.Settings.merchantRows = app.Settings.merchantRows or 6
+		app.Settings.merchantRows = app.Settings.merchantRows or 5
 		app.Settings.merchantColumns = app.Settings.merchantColumns or 2
 
 		app.MerchantFrame = {}
