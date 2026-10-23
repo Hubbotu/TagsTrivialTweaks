@@ -259,7 +259,11 @@ function app:ResizeMerchantFrame(merchantTab)
 	MerchantBuyBackItem:ClearAllPoints()
 	MerchantBuyBackItem:SetPoint("LEFT", MerchantFrameBottomLeftBorder, 205, -5)
 	MerchantSellAllJunkButton:ClearAllPoints()
-	MerchantSellAllJunkButton:SetPoint("RIGHT", MerchantBuyBackItem, "LEFT", -18, 0)
+	if app.Forever and MerchantRepairAllButton:IsVisible() then
+		MerchantSellAllJunkButton:SetPoint("LEFT", MerchantRepairAllButton, "RIGHT", 8, 0)
+	else
+		MerchantSellAllJunkButton:SetPoint("RIGHT", MerchantBuyBackItem, "LEFT", -18, 0)
+	end
 
 	local function setAnchor(region, left, bottom, right, top)
 		region:ClearAllPoints()
