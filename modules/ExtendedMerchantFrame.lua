@@ -19,6 +19,7 @@ app.Event:Register("ADDON_LOADED", function(addOnName, containsBindings)
 		app.MerchantFrame.slots = {}
 
 		app:ExtendedMerchantFrame()
+		app:Brutosaur()
 	end
 end)
 
@@ -198,6 +199,8 @@ app.Event:Register("MERCHANT_SHOW", function()
 		else
 			app:SetBuybackTab()
 		end
+
+		app:StartBrutosaurTimer(5, 15)
 	end
 end)
 
@@ -206,6 +209,8 @@ app.Event:Register("MERCHANT_CLOSED", function()
 		app.ExtendedMerchantSettings:Hide()
 		app.MerchantFrame.SearchBar:ClearFocus()
 		app.MerchantFrame.SearchBar:SetText("")
+
+		app:StopBrutosaurTimer()
 	end
 end)
 
@@ -311,11 +316,105 @@ function app:GetItemButton(number)
 	return slot
 end
 
----------
--- API --
----------
-
 function api:SetMerchantSearch(string)
 	if not app.MerchantFrame.SearchBar then return end
 	app.MerchantFrame.SearchBar:SetText(string or "")
+end
+
+---------------
+-- BRUTOSAUR --
+---------------
+
+function app:Brutosaur()
+	local config = {
+		spriteSize = 96,
+		speed = 75,
+		fps = 12.5,
+		startOverlap = 16,
+		rightInset = 10,
+		bottomOffset = 8,
+	}
+
+	local sprite = MerchantFrame:CreateTexture(nil, "ARTWORK", nil, 7)
+	sprite:SetSize(config.spriteSize, config.spriteSize)
+	sprite:SetTexture("Interface\\AddOns\\SlackersTweakSuite\\assets\\brutosaur.png")
+	sprite:Hide()
+
+	local mask = MerchantFrame:CreateMaskTexture()
+	mask:SetTexture("Interface\\Buttons\\WHITE8X8", "CLAMPTOBLACKADDITIVE", "CLAMPTOBLACKADDITIVE")
+	sprite:AddMaskTexture(mask)
+
+	local walkGroup = sprite:CreateAnimationGroup()
+	walkGroup:SetLooping("REPEAT")
+
+	local flipbook = walkGroup:CreateAnimation("FlipBook")
+	flipbook:SetFlipBookRows(4)
+	flipbook:SetFlipBookColumns(4)
+	flipbook:SetFlipBookFrames(10)
+	flipbook:SetDuration(10 / config.fps)
+
+	local moveGroup = sprite:CreateAnimationGroup()
+	local movement = moveGroup:CreateAnimation("Translation")
+	movement:SetSmoothing("NONE")
+
+	function api:StopBrutosaur()
+		assert(self == api, "Call SlackersTweakSuite:StopBrutosaur(), not SlackersTweakSuite.StopBrutosaur()")
+
+		moveGroup:Stop()
+		walkGroup:Stop()
+		sprite:Hide()
+	end
+
+	moveGroup:SetScript("OnFinished", function()
+		api:StopBrutosaur()
+		if app.BrutosaurTimerEnabled then
+			app:StartBrutosaurTimer(10, 30)
+		end
+	end)
+
+	function api:WalkBrutosaur()
+		assert(self == api, "Call SlackersTweakSuite:WalkBrutosaur(), not SlackersTweakSuite.WalkBrutosaur()")
+
+		if not app.Settings.extendedMerchant or not MerchantFrame:IsVisible() then return end
+
+		api:StopBrutosaur()
+
+		local scaleRatio = MerchantFrameBottomLeftBorder:GetEffectiveScale() / MerchantFrame:GetEffectiveScale()
+		local startX = MerchantFrameBottomLeftBorder:GetRight() * scaleRatio - MerchantFrame:GetLeft() - config.startOverlap
+		local endX = MerchantFrame:GetWidth() - config.rightInset
+		local pathWidth = endX - startX
+		if pathWidth <= 100 then return end
+
+		mask:ClearAllPoints()
+		mask:SetPoint("BOTTOMLEFT", MerchantFrame, "BOTTOMLEFT", startX, config.bottomOffset)
+		mask:SetSize(pathWidth, config.spriteSize)
+
+		sprite:ClearAllPoints()
+		sprite:SetPoint("BOTTOMRIGHT", MerchantFrame, "BOTTOMLEFT", startX, config.bottomOffset)
+
+		local distance = pathWidth + config.spriteSize
+		movement:SetOffset(distance, 0)
+		movement:SetDuration(distance / config.speed)
+
+		sprite:Show()
+		walkGroup:Play()
+		moveGroup:Play()
+	end
+
+	function app:StartBrutosaurTimer(a, b)
+		app.BrutosaurTimerEnabled = true
+		app.BrutosaurTimer = C_Timer.NewTimer(math.random(a, b), function()
+			app.BrutosaurTimer = nil
+			api:WalkBrutosaur()
+		end)
+	end
+
+	function app:StopBrutosaurTimer()
+		app.BrutosaurTimerEnabled = nil
+		api:StopBrutosaur()
+		if app.BrutosaurTimer then
+			app.BrutosaurTimer:Cancel()
+			app.BrutosaurTimer = nil
+		end
+	end
 end
