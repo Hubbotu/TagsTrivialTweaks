@@ -21,8 +21,8 @@ Features marked with [F] are available on Forever; features marked with [R] are 
   - [R] Instant Catalyst: Hold Shift to instantly catalyze an item, skipping the 5 second timer.
   - [R] Instant Great Vault: Hold Shift to instantly receive your reward from the Great Vault and skip the 5 second timer.
   - [R] Hide Loot Roll Window: Hide the window that shows loot rolls and their results. You can show the window again with /loot.
-  - [R] Disable Vendor Filter: Automatically set all vendor filters to All to display items normally not shown to your class.
-  - [R&F] Disable Vendor Compare: Disable the automatic gear comparison on vendor items.
+  - [R] Disable Merchant Filter: Automatically set all merchant filters to All to display items normally not shown to your class.
+  - [R&F] Disable Merchant Compare: Disable the automatic gear comparison on merchant items.
 - Sound
   - [R] Play Queue Sound: Play the queue sound on the Master channel when any queue pops, including battlegrounds and pet battles.
   - [R] Play Ready Check Sound: Play the ready check sound on the Master channel when a ready check is initiated.

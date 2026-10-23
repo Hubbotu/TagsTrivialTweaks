@@ -28,7 +28,7 @@ app.Event:Register("MERCHANT_SHOW", function()
 			end
 		end
 
-		for i = 1, 99 do -- Works for addons that expand the vendor frame up to 99 slots
+		for i = 1, 99 do -- Works for addons that expand the merchant frame up to 99 slots
 			local itemButton = _G["MerchantItem" .. i .. "ItemButton"]
 			if itemButton then
 				itemButton.UpdateTooltip = MerchantItemButton_OnEnter

@@ -323,11 +323,11 @@ function app:CreateSettings()
 
 	checkbox("hideGroupRolls", L.HIDE_LOOT_ROLL_WINDOW, string.format(L.HIDE_LOOT_ROLL_WINDOW_DESC, "|cff00CCFF/loot|r"), false)
 
-	checkbox("vendorAll", L.DISABLE_VENDOR_FILTER, L.DISABLE_VENDOR_FILTER_DESC, true)
+	checkbox("vendorAll", L.DISABLE_MERCHANT_FILTER, L.DISABLE_MERCHANT_FILTER_DESC, true)
 
 	end
 
-	checkbox("disableMerchantCompare", L.DISABLE_VENDOR_COMPARE, L.DISABLE_VENDOR_COMPARE_DESC1 .. "\n" .. L.DISABLE_VENDOR_COMPARE_DESC2, true, nil, nil, nil, true)
+	checkbox("disableMerchantCompare", L.DISABLE_MERCHANT_COMPARE, L.DISABLE_MERCHANT_COMPARE_DESC1 .. "\n" .. L.DISABLE_MERCHANT_COMPARE_DESC2, true, nil, nil, nil, true)
 
 	if app.Retail then
 
