@@ -50,13 +50,6 @@ function app:ExtendedMerchantFrame()
 	end)
 	app.MerchantFrame.SearchBar:Hide()
 
-	if MerchantFrame.FilterDropdown then
-		MerchantFrame.FilterDropdown:SetWidth(110)
-		app.MerchantFrame.SearchBar:SetPoint("RIGHT", MerchantFrame.FilterDropdown, "LEFT", -6, 0)
-	else
-		app.MerchantFrame.SearchBar:SetPoint("TOPRIGHT", MerchantFrame, -100, -30)
-	end
-
 	app.ExtendedMerchantSettingsButton = CreateFrame("Button", nil, app.MerchantFrame.SearchBar)
 	app.ExtendedMerchantSettingsButton:SetPoint("RIGHT", app.MerchantFrame.SearchBar, "LEFT", -8, 0)
 	app.ExtendedMerchantSettingsButton:SetSize(20, 20)
@@ -254,6 +247,13 @@ function app:ResizeMerchantFrame(merchantTab)
 	end
 	if MerchantFrame:GetWidth() ~= width or MerchantFrame:GetHeight() ~= height then
 		MerchantFrame:SetSize(width, height)
+	end
+
+	if MerchantFrame.FilterDropdown and MerchantFrame.FilterDropdown:IsVisible() then
+		MerchantFrame.FilterDropdown:SetWidth(110)
+		app.MerchantFrame.SearchBar:SetPoint("RIGHT", MerchantFrame.FilterDropdown, "LEFT", -6, 0)
+	else
+		app.MerchantFrame.SearchBar:SetPoint("TOPRIGHT", MerchantFrame, -16, -33)
 	end
 
 	MerchantBuyBackItem:ClearAllPoints()
