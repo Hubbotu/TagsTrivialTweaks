@@ -57,7 +57,7 @@ function app:ExtendedMerchantFrame()
 	end
 
 	app.ExtendedMerchantSettingsButton = CreateFrame("Button", nil, app.MerchantFrame.SearchBar)
-	app.ExtendedMerchantSettingsButton:SetPoint("RIGHT", app.MerchantFrame.SearchBar, "LEFT", -6, 0)
+	app.ExtendedMerchantSettingsButton:SetPoint("RIGHT", app.MerchantFrame.SearchBar, "LEFT", -8, 0)
 	app.ExtendedMerchantSettingsButton:SetSize(20, 20)
 	local texture = app.ExtendedMerchantSettingsButton:CreateTexture(nil, "ARTWORK")
 	texture:SetAllPoints(app.ExtendedMerchantSettingsButton)
