@@ -295,7 +295,7 @@ function app:CreateSettings()
 
 	checkbox("cursorGuideCombat", L.CURSOR_GUIDE_COMBAT, L.CURSOR_GUIDE_COMBAT_DESC, true, function() app:SetCursorGuideVisibility() end, parentSetting, parentCheckbox)
 
-	checkbox("skipSeenCinematics", L.SKIP_SEEN_CINEMATICS, L.SKIP_SEEN_CINEMATICS_DESC, false, nil, nil, nil, true)
+	checkbox("skipSeenCinematics", L.SKIP_SEEN_CINEMATICS, L.SKIP_SEEN_CINEMATICS_DESC, false)
 
 	header(L.INVENTORY)
 
@@ -327,7 +327,7 @@ function app:CreateSettings()
 
 	end
 
-	checkbox("disableMerchantCompare", L.DISABLE_MERCHANT_COMPARE, L.DISABLE_MERCHANT_COMPARE_DESC1 .. "\n" .. L.DISABLE_MERCHANT_COMPARE_DESC2, true, nil, nil, nil, true)
+	checkbox("disableMerchantCompare", L.DISABLE_MERCHANT_COMPARE, L.DISABLE_MERCHANT_COMPARE_DESC1 .. "\n" .. L.DISABLE_MERCHANT_COMPARE_DESC2, true)
 
 	if app.Retail then
 
@@ -335,15 +335,15 @@ function app:CreateSettings()
 
 	checkbox("queueSound", L.PLAY_QUEUE_SOUND, L.PLAY_QUEUE_SOUND_DESC, false)
 
-	checkbox("readyCheckSound", L.PLAY_READYCHECK_SOUND, L.PLAY_READYCHECK_SOUND_DESC, false, nil, nil, nil, true)
+	checkbox("readyCheckSound", L.PLAY_READYCHECK_SOUND, L.PLAY_READYCHECK_SOUND_DESC, false)
 
-	checkbox("countdownSound", L.PLAY_COUNTDOWN_SOUND, L.PLAY_COUNTDOWN_SOUND_DESC, false, nil, nil, nil, true)
+	checkbox("countdownSound", L.PLAY_COUNTDOWN_SOUND, L.PLAY_COUNTDOWN_SOUND_DESC, false)
 
 	header(L.ADDONS)
 
 	checkbox("handyNotes", L.DISABLE_HANDYNOTES_ALTRMB, L.DISABLE_HANDYNOTES_ALTRMB_DESC .. "\n\n|cffFF0000" .. L.REQUIRES_RELOAD, true)
 
-	checkbox("ahPriceTooltip", L.AH_PRICE_TOOLTIP, L.AH_PRICE_TOOLTIP_DESC1 .. "\n" .. L.AH_PRICE_TOOLTIP_DESC2, true, function() app:HideOribosMessage() end, nil, nil, true)
+	checkbox("ahPriceTooltip", L.AH_PRICE_TOOLTIP, L.AH_PRICE_TOOLTIP_DESC1 .. "\n" .. L.AH_PRICE_TOOLTIP_DESC2, true, function() app:HideOribosMessage() end)
 
 	header(L.HOLIDAYS)
 
