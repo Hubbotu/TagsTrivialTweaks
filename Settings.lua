@@ -324,11 +324,15 @@ function app:CreateSettings()
 
 	end
 
-	checkbox("vendorAll", L.DISABLE_MERCHANT_FILTER, L.DISABLE_MERCHANT_FILTER_DESC, true)
-
 	checkbox("extendedMerchant", L.EXTENDED_MERCHANT_FRAME, L.EXTENDED_MERCHANT_FRAME_DESC .. "\n\n|cffFF0000" .. L.REQUIRES_RELOAD, false, nil, nil, nil, true)
 
-	checkbox("disableMerchantCompare", L.DISABLE_MERCHANT_COMPARE, L.DISABLE_MERCHANT_COMPARE_DESC1 .. "\n" .. L.DISABLE_MERCHANT_COMPARE_DESC2, true)
+	if app.Retail then
+
+	checkbox("vendorAll", L.DISABLE_MERCHANT_FILTER, L.DISABLE_MERCHANT_FILTER_DESC, true)
+
+	end
+
+	checkbox("disableMerchantCompare", L.DISABLE_MERCHANT_COMPARE, L.DISABLE_MERCHANT_COMPARE_DESC1 .. "\n" .. L.DISABLE_MERCHANT_COMPARE_DESC2 .. "\n\n|cffFF0000" .. L.REQUIRES_RELOAD, true)
 
 	if app.Retail then
 
