@@ -111,7 +111,7 @@ function app:ExtendedMerchantFrame()
 	app.ExtendedMerchantSettings.Columns = CreateFrame("Frame", nil, app.ExtendedMerchantSettings, "MinimalSliderWithSteppersTemplate")
 	app.ExtendedMerchantSettings.Columns:SetWidth(180)
 	app.ExtendedMerchantSettings.Columns:SetPoint("TOP", app.ExtendedMerchantSettings.Rows, "BOTTOM", 0, -20)
-	app.ExtendedMerchantSettings.Columns:Init(app.Settings.merchantRows, options.minValue, options.maxValue, options.steps, options.formatters)
+	app.ExtendedMerchantSettings.Columns:Init(app.Settings.merchantColumns, options.minValue, options.maxValue, options.steps, options.formatters)
 	app.ExtendedMerchantSettings.Columns:RegisterCallback("OnValueChanged", function(self, value)
 		app.Settings.merchantColumns = value
 		app:SetMerchantFrameSize(app.Settings.merchantRows, app.Settings.merchantColumns)
